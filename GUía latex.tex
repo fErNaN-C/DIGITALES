@@ -1,0 +1,216 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{breqn} % corregir error en simbolos < y > con babel
+\usepackage[spanish]{babel}
+\usepackage{pstricks,pst-node,pst-text,pst-3d,pst-grad,pst-coil}
+\usepackage{graphicx}
+\usepackage{pst-fill}
+\usepackage{color}
+\bibliographystyle{plain}
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage{amsmath}
+%\usepackage{wrapfig}  % Pacote para colocar texto com figura
+\usepackage{verbatim}
+\usepackage{amsmath,amssymb}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\usepackage{times}
+\usepackage{breqn} %slit equations
+\usepackage{tikz}
+
+%%%%%%%%%%%Color to equation important
+\usepackage{amsmath,empheq,xcolor}
+ \newcommand*\widefbox[1]{\fbox{\hspace{1em}#1\hspace{1em}}}
+ \usepackage{xparse}% flexible defining of document commands
+ \NewDocumentEnvironment{important}{O{red}O{}m}{%
+   \setkeys{EmphEqEnv}{#3}%
+   \setkeys{EmphEqOpt}{box=\widefbox,#2}%
+  % \setkeys{EmphEqOpt}{box=\normalcolor\widefbox,#2}% recuadro negro
+  
+   \color{#1}%
+   \EmphEqMainEnv}%
+   {\endEmphEqMainEnv}
+%%%%%%%%%%%Color to equation important
+
+
+%
+\textwidth 6.5in
+\topmargin -0.5in
+\textheight = 46.5\baselineskip
+\oddsidemargin -.1in
+\evensidemargin -.1in
+%
+\title{Proyecto 1 Ondas:     }
+\author{Nombre}
+\date{Fecha}
+
+\begin{document}
+
+\maketitle
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Osciladores forzados amortiguados}
+\subsection{Ecuación de movimiento}
+
+Fuerza impulsadora periódica $F$:
+\begin{align*}
+F  \, = \,F_0 \,\cos\left( \omega_F \,t \right) 
+\end{align*}
+dónde, $\omega_F$ es la frecuencia angular de la fuerza externa. 
+
+El símbolo $\&$ se usa para alinear las ecuaciones, al final de cada línea se usa  para que contínue en la siguiente línea. El comando $\nonumber$ se usa para no numerar la ecuación.
+\begin{align}
+&\sum \,F \, = m\,a \nonumber \\
+&-b\dot{x}\,-k\, x \, +\,F_0 \,\cos\left( \omega_F \,t \right)\, = m\,\ddot{x} \nonumber \\
+&-\frac{b}{m}\dot{x}\,-\,\frac{k}{m}\, x \, + \,\frac{F_0}{m} \,\cos\left( \omega_F \,t  \right)\, = \,\ddot{x},
+\end{align}
+
+La ecuación sale con un recuadro usando el comando "begin{important}[purple]".
+Con el comando label se puede hacer mención a la ecuación en cualquier pare del texto, así: En la siguiente ecuación \ref{ecdifForA} ...
+\begin{important}[purple]{align}
+\ddot{x}\,+\,2\,\gamma\,\dot{x}+\,\omega_0^2 \, x \, =\,\frac{F_0}{m} \,\cos\left( \omega_F \,t \right). 
+\label{ecdifForA}
+\end{important}
+
+Comando para insertar figura:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{ForzadoFuerzas.png}
+\end{figure}
+
+
+\begin{align}
+x(t)\,=\,x_t\,+\,x_e.
+\end{align}
+
+
+
+\begin{gather*}
+\ddot{x}\,+\,2\,\gamma\,\dot{x}\,+\,\omega_0^2 \, x \, =0, 
+\end{gather*}
+
+Sistemas amortiguados:
+\begin{important}[purple]{align}
+x_t(t)\,&=\,C\,e^{-\gamma \,t} \cos\left(\omega \, t \,+\,\phi\right) &\text{subamortiguado} &&\nonumber \\
+x_t(t)\,&=\,\left(C_1 \,+\,C_2\,t \right)\,e^{-\gamma\,t} &\text{críticamente amortiguado} &&\nonumber \\
+x_t(t)\,&=\,C_1 \,e^{m'_1t}\,+\,C_2 \,e^{m'_2t}. &\text{sobreamortiguado} &&\nonumber 
+\end{important}
+
+Las ecuaciones dentro del texto se escribe usando los símbolos de peso: $x_h(t)$ o $x(t) = A \cos \left( \omega_0 t + \phi \right)$. 
+
+
+Letras griegas
+\begin{align}
+    \alpha && \theta && \omega_0 && \omega_0^2
+\end{align}
+
+Fraccionarios
+\begin{align}
+   \left(  \frac{x}{y} \right)
+\end{align}
+
+Funciones trigonométricas
+\begin{align}
+ &   \cos \theta \\
+ &   \tan \theta \\
+ & \arctan \delta 
+\end{align}
+
+
+\begin{important}[purple]{gather}
+x_e(t)\,=\,D\,\cos\left(\omega_F \, t \,-\,\delta \right), 
+\end{important}
+
+
+\begin{align*}
+\dot{x}_e\,&=\,-D\,\omega_F\,\sen\left(\omega_F\,t-\delta \right) &\ddot{x}_e\,&=\,-D\,\omega_F^2\,\cos\left(\omega_F\,t-\delta \right).
+\end{align*}
+Sustituyendo:
+\begin{align*}
+&\left( -D\,\omega_F^2\,\cos\left(\omega_F\,t-\delta \right) \right) \,+\, 2 \gamma \left(-D\omega_F \sen \left( \omega_F \, t \,-\,\delta \right) \right)\,+ \, \omega_0^2 \left( D\,\cos\left(\omega_F\,t-\delta \right) \right)&& \\
+&=\frac{F_0}{m}\,\cos\omega_F\,t, && \\
+&\left(- D\,\omega_F^2\,+\,\omega_0^2\,D\right) \,\cos\left(\omega_F\,t-\delta \right) \,-\, 2 \gamma D\omega_F \sen \left( \omega_F \, t \,-\,\delta \right)  =\frac{F_0}{m}\,\cos\omega_F\,t, &&\\
+&\left(- D\,\omega_F^2\,+\,\omega_0^2\,D\right)\left( \cos\omega_F\,t\, \cos \delta \, +\,\sen\omega_F\,t\, \sen \delta  \right)&&\\
+&-\, 2 \gamma D\omega_F \left(\sen  \omega_F \, t \, \cos \delta - \sen \delta \cos \omega_F \, t\right) \,=\,\frac{F_0}{m}\, \cos\omega_F\,t.&&
+\end{align*}
+Igualando los coeficientes de los téminos $\sen\left( \omega_F \,t\right)$ y $\cos\left( \omega_F \,t\right)$:
+\begin{align}
+\sen\left( \omega_F \,t\right)&: D\left(\omega_0^2\,-\, \omega_F^2\right) \sen \delta  \,-\,2\gamma \,D\,\omega_F\,\cos\delta \,=\,0,  && 
+\label{ecSenCos1}
+\end{align} 
+\begin{align}
+\cos\left( \omega_F \,t\right)&: \,D\left(\omega_0^2\,-\, \omega_F^2\right) \cos \delta \,+\,2\gamma \,D\,\omega_F\,\sen\delta \,= \,\frac{F_0}{m}. &&
+\label{ecSenCos2}
+\end{align} 
+
+De la ec. (\ref{ecSenCos1}): 
+\begin{align*}
+&D\left(\omega_0^2\,-\, \omega_F^2\right) \sen \delta  \,=\,2\gamma \,D\,\omega_F\,\cos\delta \nonumber && 
+\end{align*}
+\begin{important}[purple]{align}
+&\tan\delta \,=\,\frac{2\gamma \,\omega_F}{\omega_0^2\,-\, \omega_F^2}.
+\label{tand}
+\end{important}	
+Aquí vemos que la tangente de $\delta$ solo depende de las frecuencias y del coeficiente de amortiguamiento. Para encontrar $D$ de la ec \ref{ecSenCos2}, necesitamos expresiones del seno y coseno de $\delta$ en función de $\omega$ y $\gamma$.
+
+
+\begin{important}[purple]{gather}
+D\,=\frac{F_0/m}{\sqrt{\left(\omega_0^2\,-\, \omega_F^2\right)^2\,+\,\left( 2\gamma \,\omega_F\right)^2}} 
+\label{amplitud}
+\end{important} 
+
+Resonancia:
+\begin{important}[purple]{gather}
+\omega_r =\omega_F = \sqrt{\omega_0^2 -2 \gamma^2},
+\end{important}
+
+
+
+Ejemplo con flechas en las ecuaciones:
+\begin{align*}
+&\omega_F \,=\, 0 &D &\, = \,\frac{F_0}{m \omega_0^2}\,=\,\frac{F_0}{k} && \\ 
+&\omega_F\,=\, \omega_r &D& \, =\,D_{max}&& \\
+&\omega_F\,=\, \omega_0 &D& \, =\,\frac{F_0}{2\,m\,\gamma \,\omega_0}&& \\
+&\omega_F\rightarrow \infty &D& \, \rightarrow\,0&&
+\end{align*}
+
+
+
+
+Viñetas:
+\begin{itemize}
+\item La frecuencia de resonancia difiere de la frecuencia natural $\omega_0$ y de la frecuencia del oscilador amortiguado $\omega$.
+\item La frecuencia de resonancia disminuye cuando el factor de amortiguamiento crece.
+\item Para la luz láser ($\gamma$ pequeño) la curva de resonancia es aguda y alta, en cambio para la luz natural ($\gamma$ grande) la curva es ancha y baja.
+\item Si b=0 la amplitud de resonancia es $\infty$.
+\end{itemize}
+
+\subsection{Ecuaciones de movimiento: resumen}
+\label{ec total}
+Ecuación de movimiento de un sistema forzado amortiguado :
+\begin{important}[purple]{gather}
+x(t)\,=\,x_t \, + \, D \cos \left(\omega_F \,t \,-\,\delta \right).
+\end{important} 
+$D$ y $\delta$ se encuentran a partir de  las ec. (\ref{amplitud}) y (\ref{tand}):
+
+\begin{important}[purple]{gather*}
+D\,=\frac{F_0/m}{\sqrt{\left(\omega_0^2\,-\, \omega_F^2\right)^2\,+\,\left( 2\gamma \,\omega_F\right)^2}}, 
+\end{important} 
+y 
+\begin{important}[purple]{align*}
+&\tan\delta \,=\,\frac{2\gamma \,\omega_F}{\omega_0^2\,-\, \omega_F^2}.
+\label{tand}
+\end{important}	
+Las constantes que aparecen en $x_t$ se encuentran aplicando las condiciones iniciales a $x(t)$.
+
+
+%\bibliographystyle{apsrev4-1}
+%\bibliography{ultrathin,nematics}
+
+
+
+\end{document}
+
